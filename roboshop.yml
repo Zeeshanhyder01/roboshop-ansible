@@ -1,0 +1,5 @@
+- name : Run Roboshop setup
+  hosts : "{{HOST}}"
+  roles :
+    - "{{ROLE}}"
+#here HOST & ROLE are declared as variables
