@@ -9,7 +9,7 @@
 #  }
 
 - name : setup YUM repos for nodejs
-  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash
 
 - name: Install NodeJS
   ansible.builtin.yum:
