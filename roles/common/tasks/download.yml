@@ -1,10 +1,22 @@
-- name: Remove App Code
+- name: Remove App Location
   ansible.builtin.file:
     path: "{{ APP_LOCATION }}"
     state: absent
+
+- name: create App Location
+  ansible.builtin.file:
+    path: "{{ APP_LOCATION }}"
+    state: directory
 
 - name: Download and Extract {{ COMPONENT }} component Archive
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/{{ COMPONENT }}/archive/main.zip
     dest: /tmp
     remote_src: yes
+
+- name : Copy {{ COMPONENT }} code to APP Location
+  ansible.builtin.copy:
+    src: /tmp/{{COMPONENT}}-main/{{STATIC}}
+    dest: "{{ APP_LOCATION }}/"
+    remote_src: yes
+
