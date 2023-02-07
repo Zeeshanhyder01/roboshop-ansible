@@ -16,7 +16,7 @@
 
 - name : Copy {{ COMPONENT }} code to APP Location
   ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/{{STATIC}}
+    src: /tmp/{{COMPONENT}}-main/{{SUFFIX}}
     dest: "{{ APP_LOCATION }}/"
     remote_src: yes
 
