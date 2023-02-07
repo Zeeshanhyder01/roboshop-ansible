@@ -14,7 +14,7 @@
 - name: Install NodeJS
   ansible.builtin.yum:
     name: nodejs
-    state: latest
+    state: installed
 
 - name: Import common App Setup Configurations
   ansible.builtin.include_role:
