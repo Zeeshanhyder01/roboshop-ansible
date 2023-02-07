@@ -1,0 +1,22 @@
+
+#    APP_COMMON_SETUP
+#
+#    PRINT "Install NodeJS Dependencies for ${COMPONENT} Component"
+#    mv ${COMPONENT}-main ${COMPONENT} && cd ${COMPONENT} && npm install &>>${LOG}
+#    CHECK_STAT $?
+#
+#    SYSTEMD
+#  }
+
+- name : setup YUM repos for nodejs
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name : Installing Nodejs
+  ansible.builtin.yum :
+    name : nodejs
+    state : installed
+
+- name: Import common App Setup Configurations
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
