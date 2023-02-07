@@ -39,4 +39,8 @@
     name: nginx
     state: installed
 
+- name: Import common role for code download
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
   
