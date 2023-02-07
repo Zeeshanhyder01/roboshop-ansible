@@ -1,6 +1,6 @@
 - name: Remove App Code
   ansible.builtin.file:
-    path: {{ APP_LOCATION }}
+    path: {{APP_LOCATION}}
     state: absent
 
 - name: Download and Extract {{ COMPONENT }} component Archive
