@@ -1,4 +1,10 @@
-- name: Download {{ COMPONENT }} component Archive
-  ansible.builtin.get_url:
-    url: https://github.com/roboshop-devops-project/{{ COMPONENT }}/archive/main.zip
-    dest: /tmp/{{ COMPONENT }}.zip
+- name: Remove App Code
+  ansible.builtin.file:
+    path: {{ APP_LOCATION }}
+    state: absent
+
+- name: Download and Extract {{ COMPONENT }} component Archive
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/{{ COMPONENT }}/archive/main.zip
+    dest: /tmp
+    remote_src: yes
