@@ -1,10 +1,4 @@
 
-#    mv ${COMPONENT}-main ${COMPONENT} && cd ${COMPONENT} && npm install &>>${LOG}
-#    CHECK_STAT $?
-#
-#    SYSTEMD
-#  }
-
 - name : setup YUM repos for nodejs
   ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
 
