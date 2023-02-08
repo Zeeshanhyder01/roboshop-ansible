@@ -1,7 +1,4 @@
 
-#    APP_COMMON_SETUP
-#
-#    PRINT "Install NodeJS Dependencies for ${COMPONENT} Component"
 #    mv ${COMPONENT}-main ${COMPONENT} && cd ${COMPONENT} && npm install &>>${LOG}
 #    CHECK_STAT $?
 #
@@ -20,3 +17,7 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
+
+- name : Install nodeJS Dependencies
+  community.general.npm:
+    path:"{{ APP_LOCATION }}"
