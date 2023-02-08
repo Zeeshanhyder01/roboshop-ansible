@@ -1,7 +1,7 @@
 - name: SystemD setup for {{ COMPONENT }} service
   ansible.builtin.include_role:
     name: common
-    tasks_from: systemd
+    tasks_from: systemd.service
 
 - name : Setup {{ COMPONENT }} service
   ansible.builtin.systemd:
