@@ -2,7 +2,7 @@
 - name : Copy Redis Yum repo file
   ansible.builtin.template:
     src : redis.repo
-    dest : /etc/yum.repo.d/redis.repo
+    dest : /etc/yum.repos.d/redis.repo
 
 - name : Installing Redis
   ansible.builtin.yum:
