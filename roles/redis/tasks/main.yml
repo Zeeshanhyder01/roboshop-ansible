@@ -4,10 +4,10 @@
     src : redis.repo
     dest : /etc/yum.repos.d/redis.repo
 
-- name : Installing Redis
+- name: Install Redis
   ansible.builtin.yum:
-    name : redis-6.2.7
-    state : installed
+    name: redis-6.2.7
+    state: installed
 
 - name: Replace Listen IP From Redis Conf file
   ansible.builtin.replace:
