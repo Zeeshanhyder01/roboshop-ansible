@@ -6,7 +6,7 @@
 - name: Import common role for code download
   ansible.builtin.include_role:
     name: common
-    tasks_from: download
+    tasks_from: AppSetup
 
 - name : Copy Roboshop Config File
   ansible.builtin.template:
