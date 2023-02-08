@@ -18,6 +18,6 @@
     name: common
     tasks_from: download
 
-- name : Install nodeJS Dependencies
+- name : Install NodeJS Dependencies
   community.general.npm:
-    path:"{{ APP_LOCATION }}"
+    path : "{{ APP_LOCATION }}"
