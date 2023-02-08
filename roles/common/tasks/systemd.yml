@@ -1,9 +1,9 @@
-- name: SystemD setup for {{ COMPONENT }} service
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: systemd.service
+- name:  setup for {{ COMPONENT }} SystemD service
+  ansible.builtin.template:
+   src : systemd.service
+   dest : /etc/systemd/system/{{ COMPONENT }}.service
 
-- name : Setup {{ COMPONENT }} service
+- name : start {{ COMPONENT }} service
   ansible.builtin.systemd:
     name : "{{ COMPONENT }}"
     enabled : yes
