@@ -1,0 +1,11 @@
+- name: SystemD setup for {{ COMPONENT }} service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
+
+- name : Setup {{ COMPONENT }} service
+  ansible.builtin.systemd:
+    name : "{{ COMPONENT }}"
+    enabled : yes
+    state : restarted
+    daemon_reload : yes
