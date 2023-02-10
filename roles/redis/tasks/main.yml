@@ -6,7 +6,7 @@
 
 - name: Install Redis
   ansible.builtin.yum:
-    name: redis-6.2.7
+    name: redis-6.2.9
     state: installed
 
 - name: Replace Listen IP From Redis Conf file
