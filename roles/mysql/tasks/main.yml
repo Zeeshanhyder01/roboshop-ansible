@@ -45,4 +45,4 @@
 - name: Fail if MYSQL_PASSWORD does not exist
   ansible.builtin.fail:
     msg: MYSQL_PASSWORD variable is missing
-  when: MYSQL_PASSWORD is false
+  when: MYSQL_PASSWORD is not defined
