@@ -19,6 +19,8 @@
 
 - name : Install Maven Depencies
   ansible.builtin.shell : mvn clean package && mv target/${{COMPONENT}}-1.0.jar ${{COMPONENT}}.jar
+  args:
+    chdir : /home/roboshop/{{ COMPONENT }}
 
 - name : SystemD Setup for {{ COMPONENT }} service
   ansible.builtin.include_role:
