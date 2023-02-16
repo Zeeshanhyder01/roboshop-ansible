@@ -9,4 +9,4 @@ ExecStart=/bin/java -XmsMEMm -XmxMEMm -jar /home/roboshop/shipping/shipping.jar
 SyslogIdentifier=shipping
 
 [Install]
-WantedBy=multi-user.targe
+WantedBy=multi-user.target
