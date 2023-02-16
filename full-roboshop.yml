@@ -1,0 +1,42 @@
+
+- hosts : FRONTEND
+  become: yes
+  roles :
+    - "frontend"
+
+- hosts : MONGODB
+  become: yes
+  roles :
+    - "mongodb"
+
+- hosts : CATALOGUE
+  become: yes
+  roles :
+    - "catalogue"
+
+- hosts : CART
+  become: yes
+  roles :
+    - "cart"
+
+- hosts : USER
+  become: yes
+  roles :
+    - "user"
+
+- hosts : MYSQL
+  become: yes
+  roles :
+    - "mysql"
+- hosts : RABBITMQ
+  become: yes
+  roles :
+    - "rabbitmq"
+- hosts : SHIPPING
+  become: yes
+  roles :
+    - "shipping"
+- hosts : PAYMENT
+  become: yes
+  roles :
+    - "payment"
