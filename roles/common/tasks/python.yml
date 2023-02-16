@@ -9,7 +9,7 @@
 - name: Import Common App Setup Configurations
   ansible.builtin.include_role:
     name: common
-    tasks_from: download
+    tasks_from: AppSetup
 
 - name: Install Python Dependencies
   ansible.builtin.pip:
