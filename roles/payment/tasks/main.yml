@@ -1,0 +1,47 @@
+- name: Fail if the Password RABBITMQ_USER_PASSWORD does not exist
+  ansible.builtin.fail:
+    msg: RABBITMQ_USER_PASSWORD variable is missing.
+  when: RABBITMQ_USER_PASSWORD is undefined
+
+- name: Import Common Roles- python
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: python
+
+
+
+#  PRINT "Install ${COMPONENT} Dependencies"
+#  mv ${COMPONENT}-main ${COMPONENT} && cd /home/roboshop/${COMPONENT} && pip3 install -r requirements.txt &>>${LOG}
+#  CHECK_STAT $?
+#
+#  USER_ID=$(id -u roboshop)
+#  GROUP_ID=$(id -g roboshop)
+#
+#  PRINT "Update ${COMPONENT} Configuration"
+#  sed -i -e "/^uid/ c uid = ${USER_ID}" -e "/^gid/ c gid = ${GROUP_ID}" /home/roboshop/${COMPONENT}/${COMPONENT}.ini
+#  CHECK_STAT $?
+#
+#  SYSTEMD
+#}
+
+- name : Installing Pythom
+  ansible.builtin.yum :
+    name :
+      - python36
+      - gcc
+      - python3-devel
+    state : installed
+
+- name: Import common App Setup Configurations
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: AppSetup
+
+- name:  Install python  Dependencies
+  ansible.builtin.pip:
+    requirements: /home/roboshop/{{ COMPONENT }}/requirements.txt
+    executable : pip3
+
+- name : print
+  debug :
+    msg : "{{app_user}}"
