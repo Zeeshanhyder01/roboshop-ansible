@@ -4,6 +4,10 @@
     msg: RABBITMQ_USER_PASSWORD variable is missing.
   when: RABBITMQ_USER_PASSWORD is undefined
 
+- name : print
+  debug:
+    msg : "{{RABBITMQ_USER_PASSWORD }}"
+
 - name : setup rabbitmq repos
   ansible.builtin.shell : curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
 
