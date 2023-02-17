@@ -6,7 +6,6 @@ SG_NAME="ALLOW-ALL-FROM-INTERNET"
 IAM_INSTANCE_PROFILE="Arn=arn:aws:iam::027649525327:instance-profile/ROLE-FOR-SECRET-MANGER=READONLY"
 #############################
 
-
 COMPONENT=all
 create_ec2() {
   PRIVATE_IP=$(aws ec2 run-instances \
