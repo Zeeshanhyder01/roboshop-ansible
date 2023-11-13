@@ -33,7 +33,3 @@
     name: common
     tasks_from: download.yml
 
-- name: Deleting old content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
