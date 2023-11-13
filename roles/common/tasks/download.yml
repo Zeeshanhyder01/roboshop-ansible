@@ -1,8 +1,13 @@
 
-- name: Deleting old content
+- name: Remove App location
   ansible.builtin.file:
     path: "{{ APP_LOCATION }}"
     state: absent
+
+- name: creating App location
+  ansible.builtin.file:
+    path: "{{ APP_LOCATION }}"
+    state: directory
 
 - name: Download and Extract {{ COMPONENT }} Data
   ansible.builtin.unarchive:
@@ -13,7 +18,7 @@
 - name: Copy {{ COMPONENT }} code to App location
   ansible.builtin.copy:
     src: /tmp/{{ COMPONENT }}-main/
-    dest: "{{ APP_LOCATION}}/"
+    dest: "{{ APP_LOCATION}}{{suffix}}/"
     remote_src: yes
 
 
