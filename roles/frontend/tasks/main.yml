@@ -1,9 +1,4 @@
-#  NGINX(){
-#    CHECK_ROOT
-#    PRINT "Installing Nginx"
-#    yum install nginx -y &>>${LOG}
-#    CHECK_STAT $?
-#
+
 #    PRINT "DOWNLOAD ${COMPONENT} Content"
 #    curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>${LOG}
 #    CHECK_STAT $?
@@ -32,3 +27,8 @@
   ansible.builtin.yum:
     name: nginx
     state: installed
+
+- name: Import data for {{ COMPONENT }}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download.yml
