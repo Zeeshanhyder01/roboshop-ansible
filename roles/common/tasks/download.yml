@@ -6,7 +6,7 @@
 
 - name: Download and Extract {{ COMPONENT }} Data
   ansible.builtin.unarchive:
-    src: tps://github.com/roboshop-devops-project/{{ COMPONENT }}/archive/main.zip
+    src: https://github.com/roboshop-devops-project/{{ COMPONENT }}/archive/main.zip
     dest: /tmp
     remote_src: yes
 
