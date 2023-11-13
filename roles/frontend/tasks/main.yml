@@ -1,14 +1,4 @@
 
-#    PRINT "DOWNLOAD ${COMPONENT} Content"
-#    curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>${LOG}
-#    CHECK_STAT $?
-#    PRINT "clean old content"
-#    cd /usr/share/nginx/html
-#    rm -rf * &>>${LOG}
-#    CHECK_STAT $?
-#    PRINT "extract ${COMPONENT} content"
-#    unzip /tmp/${COMPONENT}.zip  &>>${LOG}
-#    CHECK_STAT $?
 #    PRINT " ORGANISE ${COMPONENT}  CONTENT"
 #    mv ${COMPONENT}-main/* . && mv static/* . && rm -rf ${COMPONENT}-main README.md && mv localhost.conf /etc/nginx/default.d/roboshop.conf
 #
