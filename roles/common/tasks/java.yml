@@ -17,4 +17,4 @@
 - name: systemd setup {{ COMPONENT }} Service
   ansible.builtin.include_role:
     name: common
-    tasks_from: systemd.service
+    tasks_from: systemd.yml
