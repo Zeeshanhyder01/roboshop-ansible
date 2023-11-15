@@ -1,10 +1,4 @@
 
-
-
-#mv ${COMPONENT}-main ${COMPONENT} && cd ${COMPONENT}  &>>${LOG} && npm install &>>${LOG}
-#CHECK_STAT $?
-##SYSTEM
-
 - name : setup yum repos for - Nodejs
   ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash
 
@@ -21,6 +15,13 @@
 - name: Install NODEJS Dependencies
   community.general.npm:
     path: "{{ APP_LOCATION }}"
+
+- name: systemd setup {{ COMPONENT }} Service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd.ym
+
+
 
 
 
