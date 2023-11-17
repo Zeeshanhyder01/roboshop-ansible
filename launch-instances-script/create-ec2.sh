@@ -18,9 +18,9 @@ create_ec2() {
       --iam-instance-profile="${IAM_INSTANCE_PROFILE}"
       | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
-  sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json >/tmp/record.json
-  aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
-}
+  sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}${ENV}/" route53.json >/tmp/record.json
+    aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
+  }
 
 #AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
 AMI_ID="ami-0b618b7be3534c792"
