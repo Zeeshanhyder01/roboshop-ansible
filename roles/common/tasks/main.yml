@@ -1,0 +1,9 @@
+- name : set Host Name
+  ansible.builtin.shell: set-hostname {{ COMPONENT }}
+
+- name: Install Python Modules for AWS Secrets Lookup
+  ansible.builtin.pip:
+    name:
+      - boto3
+      - botocore
+    executable: pip3
