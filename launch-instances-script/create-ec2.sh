@@ -38,3 +38,5 @@ if [ "$COMPONENT" == "all" ]; then
 else
   create_ec2
 fi
+
+
